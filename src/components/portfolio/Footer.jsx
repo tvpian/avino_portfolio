@@ -24,7 +24,7 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: "'Montserrat', sans-serif" }}>ARIA CHEN</h3>
+            <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: "'Montserrat', sans-serif" }}>ANJANA VINOD</h3>
             <p className="text-gray-400" style={{ fontFamily: "'Inter', sans-serif" }}>
               Crafting compelling narratives through authentic performance and captivating presence.
             </p>
@@ -100,7 +100,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0" style={{ fontFamily: "'Inter', sans-serif" }}>
-            © 2024 ARIA CHEN. All rights reserved.
+            © 2024 ANJANA VINOD. All rights reserved.
           </p>
           <div className="flex items-center gap-2 text-gray-400 text-sm">
             <span style={{ fontFamily: "'Inter', sans-serif" }}>Made with</span>
