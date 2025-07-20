@@ -75,8 +75,8 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <Gallery category="headshot" title="Portraits" />
-        <Gallery category="fashion" title="Fashion" />
+        <Gallery category="headshot" title="Modeling Portfolio" />
+        <Gallery category="fashion" title="Headshots" />
         <MediaShowcase />
         <Resume />
         <Contact />
