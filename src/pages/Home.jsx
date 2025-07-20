@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState, useEffect } from 'react';
 import Header from '../components/portfolio/Header';
 import Hero from '../components/portfolio/Hero';
 import About from '../components/portfolio/About';
@@ -7,10 +8,39 @@ import MediaShowcase from '../components/portfolio/MediaShowcase';
 import Resume from '../components/portfolio/Resume';
 import Contact from '../components/portfolio/Contact';
 import Footer from '../components/portfolio/Footer';
+import { motion } from 'framer-motion';
+
+// Custom hook to get mouse position
+const useMousePosition = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const mouseMoveHandler = (event) => {
+      const { clientX, clientY } = event;
+      setMousePosition({ x: clientX, y: clientY });
+    };
+    document.addEventListener("mousemove", mouseMoveHandler);
+
+    return () => {
+      document.removeEventListener("mousemove", mouseMoveHandler);
+    };
+  }, []);
+
+  return mousePosition;
+};
+
 
 export default function Home() {
+  const { x, y } = useMousePosition();
+
   return (
     <div className="bg-[#0a0a0a] text-gray-300 font-sans overflow-x-hidden">
+      <motion.div
+        className="pointer-events-none fixed inset-0 z-30 transition duration-300"
+        style={{
+          background: `radial-gradient(600px at ${x}px ${y}px, rgba(184, 134, 11, 0.15), transparent 80%)`,
+        }}
+      />
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
@@ -45,8 +75,8 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <Gallery category="headshot" title="Modeling Portfolio" />
-        <Gallery category="fashion" title="Headshots" />
+        <Gallery category="headshot" title="Portraits" />
+        <Gallery category="fashion" title="Fashion" />
         <MediaShowcase />
         <Resume />
         <Contact />
