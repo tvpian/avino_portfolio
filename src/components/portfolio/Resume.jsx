@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, Award, Users } from 'lucide-react';
+import { Calendar, MapPin } from 'lucide-react';
 
 export default function Resume() {
   const experience = [
@@ -54,24 +55,42 @@ export default function Resume() {
   ];
 
   return (
-    <section id="resume" className="py-24 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#1a1a1a] relative overflow-hidden">
-      {/* Sophisticated Background Elements */}
+    <section id="resume" className="py-16 md:py-24 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#1a1a1a] relative overflow-hidden">
+      {/* Enhanced Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-[#e91e63]/10 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/3 left-1/3 w-80 h-80 bg-gradient-to-br from-[#9c27b0]/10 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 md:w-96 md:h-96 bg-gradient-to-br from-[#B8860B]/10 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/3 left-1/3 w-48 h-48 md:w-80 md:h-80 bg-gradient-to-br from-[#DAA520]/10 to-transparent rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute inset-0 elegant-pattern"></div>
+
+        {/* Dynamic floating elements */}
+        <motion.div
+          className="absolute top-1/6 left-1/5 w-16 h-16 md:w-20 md:h-20 border border-[#B8860B]/25 rounded-full"
+          animate={{
+            y: [0, -18, 0],
+            opacity: [0.3, 0.6, 0.3]
+          }}
+          transition={{ duration: 10, repeat: Infinity, repeatType: 'mirror' }}
+        />
+        <motion.div
+          className="absolute bottom-1/5 right-1/6 w-20 h-20 md:w-24 md:h-24 border-2 border-[#DAA520]/25"
+          animate={{
+            rotate: [0, 225, 450],
+            scale: [1, 1.05, 1]
+          }}
+          transition={{ duration: 13, repeat: Infinity, repeatType: 'mirror' }}
+        />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <h2
-            className="text-5xl lg:text-6xl font-bold text-white mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
             Experience
@@ -81,59 +100,65 @@ export default function Resume() {
             whileInView={{ scaleX: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
             viewport={{ once: true }}
-            className="w-24 h-1 bg-gradient-to-r from-[#e91e63] to-[#9c27b0] mx-auto"
+            className="w-24 h-1 bg-gradient-to-r from-[#B8860B] to-[#DAA520] mx-auto"
           />
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
-          {/* Experience & Projects */}
+        <div className="grid lg:grid-cols-2 gap-12 md:gap-16">
+          {/* Experience & Projects - Timeline */}
           <div className="space-y-8">
             <motion.h3
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-2xl font-bold text-[#e91e63] mb-6"
+              className="text-xl md:text-2xl font-bold text-[#B8860B] mb-6"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
               Recent Projects
             </motion.h3>
 
-            {experience.map((exp, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group relative bg-gradient-to-br from-[#111111] to-[#0a0a0a] p-6 rounded-lg border border-gray-800 hover:border-[#e91e63]/50 transition-all duration-300"
-              >
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h4 className="text-xl font-bold text-white mb-1" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                      {exp.title}
-                    </h4>
-                    <p className="text-[#e91e63] font-medium">{exp.project}</p>
-                    <span className="text-sm text-gray-400">{exp.type}</span>
-                  </div>
-                  <div className="text-right text-sm text-gray-400">
-                    <div className="flex items-center gap-1 mb-1">
-                      <Calendar size={14} />
-                      {exp.year}
+            <div className="relative border-l-2 border-gray-800 space-y-12 pl-10">
+              {experience.map((exp, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="group relative"
+                >
+                  <div className="absolute -left-[49px] top-1.5 w-6 h-6 rounded-full bg-gradient-to-r from-[#B8860B] to-[#DAA520] border-4 border-[#111111] transition-transform duration-300 group-hover:scale-125"></div>
+
+                  <div className="bg-gradient-to-br from-[#111111]/80 to-[#0a0a0a]/80 p-6 rounded-lg border border-gray-800 hover:border-[#B8860B]/50 transition-all duration-300 backdrop-blur-sm">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 gap-2">
+                      <div>
+                        <h4 className="text-lg md:text-xl font-bold text-white mb-1" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                          {exp.title}
+                        </h4>
+                        <p className="text-[#B8860B] font-medium text-sm md:text-base">{exp.project}</p>
+                        <span className="text-xs md:text-sm text-gray-400">{exp.type}</span>
+                      </div>
+                      <div className="text-left sm:text-right text-xs md:text-sm text-gray-400 mt-2 sm:mt-0">
+                        <div className="flex items-center gap-1 mb-1">
+                          <Calendar size={12} />
+                          {exp.year}
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <MapPin size={12} />
+                          {exp.location}
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-1">
-                      <MapPin size={14} />
-                      {exp.location}
-                    </div>
+                    <p className="text-gray-300 leading-relaxed text-sm md:text-base" style={{ fontFamily: "'Inter', sans-serif" }}>{exp.description}</p>
                   </div>
-                </div>
-                <p className="text-gray-300 leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>{exp.description}</p>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
 
           {/* Skills & Training */}
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             {/* Training */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -141,7 +166,7 @@ export default function Resume() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-bold text-[#9c27b0] mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+              <h3 className="text-xl md:text-2xl font-bold text-[#DAA520] mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                 Training & Education
               </h3>
 
@@ -155,12 +180,12 @@ export default function Resume() {
                     viewport={{ once: true }}
                     className="bg-gradient-to-r from-[#111111] to-[#0a0a0a] p-4 rounded-lg border border-gray-800"
                   >
-                    <div className="flex justify-between items-start">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
                       <div>
-                        <h4 className="font-bold text-white mb-1" style={{ fontFamily: "'Montserrat', sans-serif" }}>{item.course}</h4>
-                        <p className="text-gray-400 text-sm" style={{ fontFamily: "'Inter', sans-serif" }}>{item.institution}</p>
+                        <h4 className="font-bold text-white mb-1 text-sm md:text-base" style={{ fontFamily: "'Montserrat', sans-serif" }}>{item.course}</h4>
+                        <p className="text-gray-400 text-xs md:text-sm" style={{ fontFamily: "'Inter', sans-serif" }}>{item.institution}</p>
                       </div>
-                      <span className="text-[#9c27b0] text-sm font-medium">{item.year}</span>
+                      <span className="text-[#B8860B] text-xs md:text-sm font-medium">{item.year}</span>
                     </div>
                   </motion.div>
                 ))}
@@ -174,11 +199,11 @@ export default function Resume() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-bold text-[#e91e63] mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+              <h3 className="text-xl md:text-2xl font-bold text-[#B8860B] mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                 Skills & Specialties
               </h3>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {skills.map((skill, index) => (
                   <motion.div
                     key={skill}
@@ -186,9 +211,9 @@ export default function Resume() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.4, delay: index * 0.05 }}
                     viewport={{ once: true }}
-                    className="bg-gradient-to-r from-[#e91e63]/10 to-[#9c27b0]/10 px-4 py-2 rounded-lg border border-[#e91e63]/20 text-center"
+                    className="bg-gradient-to-r from-[#B8860B]/10 to-[#DAA520]/10 px-3 md:px-4 py-2 rounded-lg border border-[#B8860B]/20 text-center"
                   >
-                    <span className="text-white text-sm font-medium" style={{ fontFamily: "'Inter', sans-serif" }}>{skill}</span>
+                    <span className="text-white text-xs md:text-sm font-medium" style={{ fontFamily: "'Inter', sans-serif" }}>{skill}</span>
                   </motion.div>
                 ))}
               </div>

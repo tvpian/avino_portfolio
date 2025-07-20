@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
@@ -52,7 +53,7 @@ export default function Header() {
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               {item.label}
-              <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#e91e63] to-[#9c27b0] group-hover:w-full transition-all duration-300 ease-out"></div>
+              <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#B8860B] to-[#DAA520] group-hover:w-full transition-all duration-300 ease-out"></div>
             </motion.button>
           ))}
         </nav>
