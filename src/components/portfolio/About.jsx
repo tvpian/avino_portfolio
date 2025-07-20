@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 
 export default function About() {
   const stats = [
-    { label: 'Height', value: "5' 6\"" },
+    { label: 'Height', value: "5' 4\"" },
     { label: 'Hair', value: 'Black' },
-    { label: 'Eyes', value: 'Dark Brown' },
-    { label: 'Location', value: 'Mumbai, India' },
+    { label: 'Eyes', value: 'Light Brown' },
+    { label: 'Location', value: 'Kerala, India' },
   ];
 
   return (
