@@ -57,7 +57,7 @@ export default function About() {
                 transition={{ duration: 6, repeat: Infinity, repeatType: 'mirror' }}
               />
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop"
+                src="https://drive.google.com/thumbnail?id=15BWIBwhVSG5NeSSumqkTX0G2xEUj_ZLp&sz=s4000"
                 alt="About"
                 className="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] object-cover rounded-lg"
               />

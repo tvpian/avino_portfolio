@@ -145,7 +145,7 @@ export default function Hero() {
                 className="absolute inset-0 bg-gradient-to-br from-[#B8860B]/20 to-[#DAA520]/20 rounded-lg group-hover:scale-105 transition-transform duration-500"
               />
               <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop"
+                src="https://drive.google.com/thumbnail?id=118bclzBw56wCo7zc2gle6B1a6hdVyGIJ&sz=s4000"
                 alt="Portrait"
                 className="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] object-cover rounded-lg group-hover:scale-105 transition-transform duration-500"
               />
